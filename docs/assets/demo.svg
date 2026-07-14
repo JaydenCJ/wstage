@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="452" viewBox="0 0 760 452" font-family="Menlo, Consolas, monospace" font-size="14">
+  <rect width="760" height="452" rx="10" fill="#101418"/>
+  <circle cx="24" cy="22" r="6" fill="#ff5f56"/>
+  <circle cx="44" cy="22" r="6" fill="#ffbd2e"/>
+  <circle cx="64" cy="22" r="6" fill="#27c93f"/>
+  <text x="380" y="27" fill="#8b949e" text-anchor="middle" font-size="12">wstage — record WebSocket sessions, replay them as a scripted mock server</text>
+  <g fill="#c9d1d9">
+    <text x="24" y="62"><tspan fill="#7ee787">$</tspan> wstage show examples/ticker.jsonl</text>
+    <text x="24" y="92">examples/ticker.jsonl — <tspan fill="#79c0ff">7 events (3 c2s, 3 s2c, close by server), 1.50s</tspan></text>
+    <text x="24" y="112" fill="#8b949e">recorded 2026-07-10T09:15:00Z from ws://127.0.0.1:9601/feed</text>
+    <text x="24" y="146">  1   0.000  <tspan fill="#f778ba">→ c2s</tspan>   text   subscribe:AAPL</text>
+    <text x="24" y="168">  2   0.040  <tspan fill="#7ee787">← s2c</tspan>   text   {"sym":"AAPL","px":210.05,"seq":1}</text>
+    <text x="24" y="190">  3   0.540  <tspan fill="#7ee787">← s2c</tspan>   text   {"sym":"AAPL","px":210.11,"seq":2}</text>
+    <text x="24" y="212">  4   0.600  <tspan fill="#f778ba">→ c2s</tspan>   text   {"op":"ack","seq":2}   <tspan fill="#d2a8ff">[match: subset {"op":"ack"}]</tspan></text>
+    <text x="24" y="234">  5   1.040  <tspan fill="#7ee787">← s2c</tspan>   text   {"sym":"AAPL","px":209.98,"seq":3}</text>
+    <text x="24" y="256">  6   1.200  <tspan fill="#f778ba">→ c2s</tspan>   text   unsubscribe:AAPL   <tspan fill="#d2a8ff">[match: regex ^unsubscribe:[A-Z]+$]</tspan></text>
+    <text x="24" y="278">  7   1.500  <tspan fill="#ffbd2e">✕ close</tspan>        1000 by server "feed complete"</text>
+    <text x="24" y="318"><tspan fill="#7ee787">$</tspan> wstage replay examples/ticker.jsonl --once &amp;</text>
+    <text x="24" y="340" fill="#8b949e" font-size="10">wstage: replay listening on ws://127.0.0.1:9601/ — examples/ticker.jsonl (7 events (3 c2s, 3 s2c, close by server), 1.50s)</text>
+    <text x="24" y="362"><tspan fill="#7ee787">$</tspan> wstage play examples/ticker.jsonl ws://127.0.0.1:9601/feed</text>
+    <text x="24" y="392">play: 3 sent, 3/3 expectations matched — <tspan fill="#7ee787">PASS</tspan></text>
+    <text x="24" y="414">session: 3 sent, 3/3 expectations matched — <tspan fill="#7ee787">PASS</tspan></text>
+  </g>
+</svg>

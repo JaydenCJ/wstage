@@ -1,0 +1,8 @@
+{"wstage":1,"name":"ticker","url":"ws://127.0.0.1:9601/feed","recorded_at":"2026-07-10T09:15:00Z"}
+{"t":0,"dir":"c2s","type":"text","data":"subscribe:AAPL"}
+{"t":0.04,"dir":"s2c","type":"text","data":"{\"sym\":\"AAPL\",\"px\":210.05,\"seq\":1}"}
+{"t":0.54,"dir":"s2c","type":"text","data":"{\"sym\":\"AAPL\",\"px\":210.11,\"seq\":2}"}
+{"t":0.6,"dir":"c2s","type":"text","data":"{\"op\":\"ack\",\"seq\":2}","match":"subset","expect":"{\"op\":\"ack\"}"}
+{"t":1.04,"dir":"s2c","type":"text","data":"{\"sym\":\"AAPL\",\"px\":209.98,\"seq\":3}"}
+{"t":1.2,"dir":"c2s","type":"text","data":"unsubscribe:AAPL","match":"regex","expect":"^unsubscribe:[A-Z]+$"}
+{"t":1.5,"dir":"close","by":"server","code":1000,"reason":"feed complete"}
